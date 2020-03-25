@@ -33,6 +33,7 @@ public class TaskConstroller {
     public String edit(Model model, @PathVariable String id) {
         try {
             //model.addAttribute("task", service.getTask(Integer.parseInt(id)));
+
             model.addAttribute("task", taskService.getTaskDTO(Long.parseLong(id)));
 
         } catch (IllegalArgumentException ex) {
