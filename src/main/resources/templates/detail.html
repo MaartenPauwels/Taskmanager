@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.com">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="header.css">
+    <link rel="stylesheet" type="text/css" href="../static/header.css">
 
     <title>Detail</title>
 </head>
@@ -11,16 +11,16 @@
 <div th:replace="tempheader :: tempheader">...</div>
 
 <div th:if="not ${task != null}">
-    <p>Task not found</p>
+    <p th:text="#{Tasknotfound}"></p>
 </div>
 <div th:if="${task != null}">
-    <p>Titel: <span th:text="${task.title}"></span></p>
-    <p>description: <span th:text="${task.description}">></span></p>
-    <p>date: <span th:text="${task.datetime}">></span></p>
+    <p th:text="#{title} + ': ' + ${task.title}"> </p>
+    <p th:text="#{Description} + ': ' + ${task.description}"> </p>
+    <p th:text="#{Duedate} + ': ' + ${task.datetime} "></p>
    <!--<p>date: <span th:text="${task.subTasks[0].title}">></span></p>-->
 
     <div th:if="${#lists.isEmpty(task.subTasks)}">
-        <p>No subtask tasks left to do</p>
+        <p th:text="#{Nosubtasktaskslefttodo}"></p>
 
     </div>
     <div th:if="${not #lists.isEmpty(task.subTasks)}">

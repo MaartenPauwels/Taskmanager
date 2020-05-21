@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="header.css">
+    <link rel="stylesheet" type="text/css" href="../static/header.css">
     <title>Add Subtask</title>
 </head>
 <body>
@@ -13,14 +13,14 @@
 
     <div>
         <input  type="hidden" th:field="*{id}">
-        <label for="title">Title:</label>
+        <label for="title" th:text="#{title}"></label>
         <input type="text" th:field="*{title}">
 
         <p th:errors="*{title}"></p>
     </div>
 
     <div>
-        <label for="description">Description:</label>
+        <label for="description" th:text="#{Description}"></label>
         <input type="text" th:field="*{description}">
         <p th:errors="*{description}"></p>
     </div>

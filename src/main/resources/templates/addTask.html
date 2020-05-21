@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="header.css">
+    <link rel="stylesheet" type="text/css" href="../static/header.css">
 
     <title>Add task</title>
 </head>
@@ -14,17 +14,17 @@
 
 <form method="post" th:action="@{/tasks/addTask}" th:object="${task}">
     <div>
-        <label for="title">Title:</label>
+        <label for="title" th:text="#{title}"></label>
         <input type="text" th:field="*{title}">
         <p th:errors="*{title}"></p>
     </div>
     <div>
-        <label for="description">Description:</label>
+        <label for="description" th:text="#{Description}"></label>
         <input type="text" th:field="*{description}">
         <p th:errors="*{description}"></p>
     </div>
     <div>
-        <label for="localDateTime">Due date:</label>
+        <label for="localDateTime" th:text="#{Duedate}"></label>
         <input type="datetime-local" th:field="*{datetime}">
     </div>
     <input type="submit" value="Submit">

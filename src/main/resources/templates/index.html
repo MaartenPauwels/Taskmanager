@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.com">
 <head>
-    <link rel="stylesheet" type="text/css" href="header.css">
     <meta charset="UTF-8">
     <title>Index</title>
 </head>
 <body>
-<h1>Tasks</h1>
+<h1 th:text="#{Task}"></h1>
 
 <div th:replace="tempheader :: tempheader">...</div>
 
 
 <div th:if="${#lists.isEmpty(Tasks)}">
-    <p>No tasks left to do</p>
+    <p th:text="#{Notaskslefttodo}"></p>
 
 </div>
 <div th:if="${not #lists.isEmpty(Tasks)}">

@@ -1,9 +1,11 @@
-<link rel="stylesheet" type="text/css" href="header.css">
+<link rel="stylesheet" type="text/css" href="../static/header.css" xmlns:th="http://www.w3.org/1999/xhtml">
 <div th:fragment="tempheader">
     <header>
         <div class="topnav">
-            <a class="active" href="/tasks/">Home</a>
-            <a href="/tasks/new">New</a>
+            <a class="active" href="/tasks/"  th:text="#{home}"></a>
+            <a href="/tasks/new" th:text="#{new}" ></a>
+            <a href="/?lang=nl" th:text="nl" ></a>
+            <a href="/?lang=en" th:text="en" ></a>
         </div>
     </header>
 </div>
