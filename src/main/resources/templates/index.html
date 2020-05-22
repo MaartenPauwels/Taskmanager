@@ -16,7 +16,7 @@
 </div>
 <div th:if="${not #lists.isEmpty(Tasks)}">
     <ul th:each="task: ${Tasks}">
-        <li> <p th:text="${task.title} + ' ' + #{due}+ ' ' + ${task.datetime}"></p>  </li>
+        <li> <p th:text="${task.id} + ' ' +${task.title} + ' ' + #{due}+ ' ' + ${task.datetime}"></p>  </li>
     </ul>
 </div>
 

@@ -22,13 +22,21 @@ public class UserController {
             this.userService = userService;
         }
 
-        @GetMapping("/signup")
-        public String getCreateUser(Model model) {
+        @GetMapping("signup")
+        public String signup(Model model) {
             model.addAttribute("user", new CreateUserDTO());
             return "signupform";
         }
 
-        @PostMapping("/signup")
+    @GetMapping("/logout")
+    public String logout(Model model) {
+        model.addAttribute("user", null);
+        return "signinform";
+    }
+
+
+
+        @PostMapping("signup")
         public String postCreateUser(@ModelAttribute("user") @Valid CreateUserDTO user, BindingResult bindingResult) {
             if (bindingResult.hasErrors()) {
                 return "signupform";
