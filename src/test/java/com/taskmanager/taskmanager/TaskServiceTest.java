@@ -54,7 +54,7 @@ public class TaskServiceTest {
         taskService.addTask(taskDTO);
 
         //eerste id waarin wordt opgeslagen
-        TaskDTO test= taskService.getTaskDTO(2);
+        TaskDTO test= taskService.getTaskDTO(taskService.getTasks().get(0).getId());
         assertNotNull(test);
         assertTrue(test.getDescription().equals(taskDTO.getDescription()));
         assertTrue(test.getTitle().equals(taskDTO.getTitle()));
