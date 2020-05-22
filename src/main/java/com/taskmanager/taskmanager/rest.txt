@@ -1,0 +1,20 @@
+@RestController
+@RequestMapping("/api")
+public class HeadRestController {
+	private final HeadService headService;
+
+	public HeadRestController(HeadService headService) {
+		this.headService = headService;
+	}
+
+	@GetMapping("/head")
+	@ResponseBody
+	public List<HeadDTO> getHeads() {
+		return headService.getHeads();
+	}
+
+	@PostMapping("/head")
+	public HeadDTO createNewHead(@RequestBody @Valid HeadDTO headDTO){
+		return headService.addHead(headDTO);
+	}
+}
