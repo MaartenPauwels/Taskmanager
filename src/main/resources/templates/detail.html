@@ -26,6 +26,7 @@
     <div th:if="${not #lists.isEmpty(task.subTasks)}">
         <ul th:each="subtask: ${task.subTasks}">
             <li> <p th:text="${subtask.title +': due ' + subtask.description}"></p>  </li>
+
         </ul>
     </div>
 

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h1 th:text="#{Newtask}"></h1>
+<h1 th:text="#{edittask}"></h1>
 <div th:replace="tempheader :: tempheader">...</div>
 
 
@@ -25,6 +25,7 @@
         <input type="text" th:field="*{description}">
         <p th:errors="*{description}"></p>
     </div>
+
     <div>
         <label for="localDateTime" th:text="#{Duedate}"></label>
         <input type="datetime-local" th:field="*{datetime}">

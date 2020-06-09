@@ -14,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
 public class UserController {
         private final UserService userService;
 
@@ -22,21 +21,26 @@ public class UserController {
             this.userService = userService;
         }
 
-        @GetMapping("signup")
+        @GetMapping("/signup")
         public String signup(Model model) {
             model.addAttribute("user", new CreateUserDTO());
             return "signupform";
         }
 
-    @GetMapping("/logout")
-    public String logout(Model model) {
-        model.addAttribute("user", null);
-        return "signinform";
-    }
+        /*
+        @PostMapping("/logout")
+        public String logout(Model model) {
+            model.addAttribute("user", null);
+            return "signinform";
+        }
+        */
 
 
 
-        @PostMapping("signup")
+
+
+
+        @PostMapping("/signup")
         public String postCreateUser(@ModelAttribute("user") @Valid CreateUserDTO user, BindingResult bindingResult) {
             if (bindingResult.hasErrors()) {
                 return "signupform";

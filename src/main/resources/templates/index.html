@@ -16,9 +16,18 @@
 </div>
 <div th:if="${not #lists.isEmpty(Tasks)}">
     <ul th:each="task: ${Tasks}">
-        <li> <p th:text="${task.id} + ' ' +${task.title} + ' ' + #{due}+ ' ' + ${task.datetime}"></p>  </li>
+        <li> <p th:text="${task.id} + ' ' +${task.title} + ' ' + #{due}+ ' ' + ${task.datetime}"></p>
+        </li>
+        <a th:href="@{/tasks/{id}(id=${task.id})}">task details</a>
+        <a th:href="@{/tasks/edit/{id}(id=${task.id})}">edit task</a>
+        <a th:href="@{/tasks/{id}/sub/create(id=${task.id})}">create subtasks</a>
+
+        <!-- @{/tasks/edit/{id}(id=${task.id})}-->
     </ul>
 </div>
 
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
 </body>
 </html>
